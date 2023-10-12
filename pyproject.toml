@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "zetapayne"
+version = "0.1.0"
+description = "Package to train neural networks on model grids of stellar spectra and to perform spectrum fitting with normalisation included."
+authors = ["Sarah Gebruers <sarah.gebruers@kuleuven.be>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.13"
+numpy = "^1.26.0"
+scipy = "^1.11.3"
+astropy = "^5.3.4"
+matplotlib = "^3.8.0"
+torch = "^2.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
