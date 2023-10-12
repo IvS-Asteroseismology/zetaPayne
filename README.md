@@ -44,12 +44,11 @@ The training of the neural networks requires GPUs.
 To train the neural network run: `python train_NN.py <batch_size> <number_of_neurons> <path_to_GRID.npz> <lowest_wavelength> <highest_wavelength>`.  
 The output neural network is saved in `NN_<number_of_neurons>_<batch_size>_<validation_fraction>.npz`.  
 
-The neural network described in Gebruers et al. (2022) is available in step3_FitSpectra/NNs/NN_OPTIC_3000_10500_n300_b1000_v0.1.npz.  
-This neural network was trained on a grid with the following parameter ranges: Teff in [6000,25000]K, logg in [3,5]dex, vsini in [0,400]km/s, microturbulence in [0,20]km/s, metallicity in [-0.8,+0.8]dex. The model spectra range from 3000 to 10500 angstrom in wavelength and have 'infinite' resolution.
+<!---The neural network described in Gebruers et al. (2022) is available in step3_FitSpectra/NNs/NN_OPTIC_3000_10500_n300_b1000_v0.1.npz.  This neural network was trained on a grid with the following parameter ranges: Teff in [6000,25000]K, logg in [3,5]dex, vsini in [0,400]km/s, microturbulence in [0,20]km/s, metallicity in [-0.8,+0.8]dex. The model spectra range from 3000 to 10500 angstrom in wavelength and have 'infinite' resolution.--->
 
 ### step3_FitSpectra
 Fit observed spectra using a neural network to predict synthetic spectra. The spectrum normalisation is done simultaneously with the parameter determination by representing the response function with a series of Chebyshev polynomials of which the coefficients are added as fitting parameters.    
 Update the configuration file `input.conf` with the desired wavelength range, number of Chebyshev coefficients, spectrograph resolution, ...
 
 To fit an observed spectrum run: `python fitSpectrum.py <path_to_observed_spectrum>`.  
-The output is saved in the `Output` folder. It will contain a folder with a file of the spectrum, the best fitting model spectrum, their normalised versions, and the Chebyshev polynomial series. There is also a LOG file saved with the best fitting surface parameters and a figure of the spectrum with best fit. 
+The output is saved in the `Output` folder. It will contain a folder with a file of the spectrum, the best fitting model spectrum, their normalised versions, and the Chebyshev polynomial series. There is also a LOG file saved with the best fitting surface parameters and a figure of the spectrum with best fit.
