@@ -1,16 +1,16 @@
 # zetaPayne
 
-This package is a simplified version of the Payne-Che package (https://github.com/istraumit/Payne-Che) with all its components structured into separate folders.
+This package is a streamlined version of the [Payne-Che package](https://github.com/istraumit/Payne-Che) with all its components structured into separate folders.
 
 
 ## Documentation
 
-The paper introducing zeta-Payne: https://doi.org/10.3847/1538-3881/ac5f49
+The paper introducing zeta-Payne: [Straumit et al. (2022)](https://doi.org/10.3847/1538-3881/ac5f49)
 
 
 ## Installation
 
-Installation with Poetry: git clone the repository and run the command `poetry install` in the folder that contains the `pyproject.toml` and `poetry.lock` files.  
+Installation with [Poetry](https://python-poetry.org/docs/): git clone the repository and run the command `poetry install` in the folder that contains the `pyproject.toml` and `poetry.lock` files.  
 
 
 ## Usage
@@ -25,7 +25,7 @@ The zeta-Payne package exists of 3 components:
 
 
 ### step1_CreateGrid
-Create a grid of model spectra with the spectrum synthesis code GSSP (https://ascl.net/2208.021).  
+Create a grid of model spectra with the spectrum synthesis code [GSSP](https://ascl.net/2208.021).  
 The grid can be distributed quasi-randomly (using Sobol numbers), randomly, or a combination of both.  
 Update the configuration file `grid.conf` with the desired parameter boundary values, number of grid points, directory paths, ...
 
@@ -44,7 +44,7 @@ The training of the neural networks requires GPUs.
 To train the neural network run: `python train_NN.py <batch_size> <number_of_neurons> <path_to_GRID.npz> <lowest_wavelength> <highest_wavelength>`.  
 The output neural network is saved in `NN_<number_of_neurons>_<batch_size>_<validation_fraction>.npz`.  
 
-<!---The neural network described in Gebruers et al. (2022) is available in step3_FitSpectra/NNs/NN_OPTIC_3000_10500_n300_b1000_v0.1.npz.  This neural network was trained on a grid with the following parameter ranges: Teff in [6000,25000]K, logg in [3,5]dex, vsini in [0,400]km/s, microturbulence in [0,20]km/s, metallicity in [-0.8,+0.8]dex. The model spectra range from 3000 to 10500 angstrom in wavelength and have 'infinite' resolution.--->
+The neural network described in [Gebruers et al. (2022)](https://doi.org/10.1051/0004-6361/202140466) is available in release `NeuralNetwork` as file `NN_OPTIC_3000_10500_n300_b1000_v0.1.npz`.  This neural network was trained on a grid with the following parameter ranges: Teff in [6000,25000]K, logg in [3,5]dex, vsini in [0,400]km/s, microturbulence in [0,20]km/s, metallicity in [-0.8,+0.8]dex. The model spectra range from 3000 to 10500 angstrom in wavelength and have 'infinite' resolution.
 
 ### step3_FitSpectra
 Fit observed spectra using a neural network to predict synthetic spectra. The spectrum normalisation is done simultaneously with the parameter determination by representing the response function with a series of Chebyshev polynomials of which the coefficients are added as fitting parameters.    
